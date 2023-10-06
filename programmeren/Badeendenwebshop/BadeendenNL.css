@@ -1,0 +1,161 @@
+/* Algemene stijl voor de hele pagina */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stijl voor de header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Stijl voor de navigatiebalk */
+nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+}
+
+/* Stijl voor het hoofdgedeelte */
+main {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Stijl voor invoervelden */
+input[type="text"],
+input[type="number"] {
+    width: 45%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 20px; /* Voeg rechtermarge toe */
+    margin-left: 20px; /* Voeg linkermarge toe */
+}
+
+/* Stijl voor knoppen */
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px; /* Voeg rechtermarge toe */
+    margin-left: 20px; /* Voeg linkermarge toe */
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Stijl voor tussenruimte tussen secties */
+br {
+    margin-bottom: 20px;
+}
+/* Stijl voor categorieën */
+.category {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.category h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Stijl voor productlijst */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Stijl voor individuele producten */
+.product {
+    width: calc(20% - 33px); /* 20% breedte met 20px tussenruimte */
+    margin-right: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Stijl voor producttitels */
+.product h3 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+/* Stijl voor afbeeldingen */
+.product img {
+    max-width: 100%;
+    max-height: 150px; /* Pas dit aan op basis van je ontwerpvoorkeuren */
+    margin-bottom: 10px;
+}
+
+/* Stijl voor productbeschrijvingen */
+.product p {
+    font-size: 14px;
+    color: #666;
+}
+/* Stijl voor de "In winkelwagen" knop */
+.add-to-cart {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #555;
+}
+
+/* Voeg extra ruimte tussen de kolommen toe */
+table {
+    border-collapse: separate;
+    border-spacing: 10px; /* Pas de waarde aan om de gewenste ruimte te creëren */
+}
+
+/* Optioneel: stijl voor de tabelranden */
+th, td {
+    border: 1px solid #ddd; /* Voeg randen toe voor een duidelijke scheiding */
+    padding: 8px; /* Voeg wat vulling toe voor een betere leesbaarheid */
+}
+
+/* Voeg eventueel meer stijlen toe aan je ontwerp */

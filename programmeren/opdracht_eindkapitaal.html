@@ -1,0 +1,200 @@
+<html>
+  <head>
+    
+    <style>
+      
+      #titel{
+        text-align:center;
+        background-color:lightgreen;
+        border:2px solid green;
+        border-collapse:collapse;
+        font-size:30px;
+        margin-bottom:10px;
+        padding:5px;
+      }
+      #wrapper{
+       width: 600px;
+       height: 360px;
+       border:2px solid black;
+        border-collapse:collapse;
+       margin:auto;
+       padding:20px 20px 20px 20px;
+       font-size:18px;
+       font-family: Arial, Helvetica, sans-serif;
+       color:black;
+       background-color:white;
+       line-height:normal;
+      }
+      
+      #linkerblok{
+         background-color:lightgreen;
+         width:50%;
+         float:left;
+         padding:0px;
+         border:2px solid green;
+      }
+      
+      #rechterblok{
+         background-color:lightgreen;
+         width:48%;
+         height:302px;
+         float:right;
+         padding:0px;
+         border:2px solid green;
+      }
+      
+      #resultaatblok{
+        border:2px solid black;
+        height:99px;
+        margin:5px;
+        float:middle;
+        
+      }
+      #check{
+        font-size:18px;
+        padding:5px;
+        margin-top:40px;
+        margin-left:70px;
+        background-color:white;
+      }
+      
+      #startkapitaal, #rentetijd, #percentage{
+        font-size:18px;
+        margin-bottom:5px;
+        background-color:white;
+      }
+      
+      #checklabel{
+        font-size:18px;
+        margin-bottom:0px;
+      }
+      
+      #operator{
+        height:32px;
+        width:230px;
+        padding:2px;
+        background-color:white;
+      }
+      
+    </style>
+    
+    
+    
+    <title>Mini Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="../font/css/fontello.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    
+    <script>
+      
+      
+      
+      function check(){
+        
+        let startkapitaal = parseFloat(document.getElementById("startkapitaal").value);
+        let rentetijd = parseFloat(document.getElementById("rentetijd").value);
+        let percentage = parseFloat(document.getElementById("percentage").value);
+        let eindkapitaal = startkapitaal
+        const d = new Date();
+        let time1 = d.getTime();
+        
+        
+        for (x = 1; x <= rentetijd; x++)
+        {
+          let rente = eindkapitaal * (percentage / 100);
+          eindkapitaal = eindkapitaal + rente;
+          
+         
+          
+        }
+        
+        parseFloat(eindkapitaal);
+        
+        if (document.getElementById("operator").value === "finland"){
+          var uitkomst = eindkapitaal.toLocaleString("fi-FI", {style:"currency", currency:"EUR"});
+          
+        } else if (document.getElementById("operator").value === "Nederland"){
+          var uitkomst = eindkapitaal.toLocaleString("nl-NL", {style:"currency", currency:"EUR"});
+          
+        } else if (document.getElementById("operator").value === "Amerika"){
+          var uitkomst = eindkapitaal.toLocaleString("en-US", {style:"currency", currency:"USD"});
+          
+        } else if (document.getElementById("operator").value === "Engeland"){
+          var uitkomst = eindkapitaal.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+          
+        }
+        
+        
+        
+        
+        document.getElementById("resultaat").innerHTML = uitkomst + " is uw eindkapitaal";
+        const d2 = new Date();
+        let time2 = d2.getTime();
+        document.getElementById("milis").innerHTML = time2 - time1;
+        
+      }
+    </script>
+    
+    
+  </head>
+  <body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav  -collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.html"><img src="../img/Eend.png" style="width:64px" alt="" ></a>
+        <ul class="nav nav-collapse pull-right">
+          <li><a href="../index.html" ><i class="icon-user"></i> Profiel</a></li>
+          <li><a href="../skills.html"><i class="icon-trophy"></i> Vaardigheden</a></li>
+         <li><a href="../opdrachten.html" class="active"><i class="icon-picture" ></i> Opdrachten</a ></li>
+       </ul>
+       <div class="nav-collapse collapse"></div>
+     </div>
+   </div>
+  </div>
+    
+    <br>
+    <div id="wrapper">
+      <div id="titel">Wat is uw eindkapitaal?</div>
+      
+      <div id="linkerblok">
+        <br><label id= "checklabel">Voer hier uw euro's aan startkapitaal in:</label>
+        <input type="number" id="startkapitaal" > <br>
+        
+        <label id= "checklabel">Voer hier de rentetijd in jaar in:</label>
+        <input type="number" id="rentetijd" > <br><br><br>
+        
+        
+        <div id="resultaatblok">Resultaat:
+        <p id="resultaat"></p>
+        </div>
+      </div>
+      
+      <div id="rechterblok">
+        
+        <br><label id= "checklabel">Voer hier het percentage rente in:</label><br>
+        <input type="number" id="percentage" style="margin-bottom:2px"> <br><br>
+        
+        <select id='operator' onchange= "check()">
+          <option>kies uw landspecifieke weergave</option>
+          <option value="Nederland">Nederland</option>
+          <option value="Amerika">Amerika</option>
+          <option value="Engeland">Engeland</option>
+          <option value="finland">Finland</option>
+        </select><br>
+        
+       <button id= "check" onclick="check()">bereken</button>
+        <br>
+        <br> Tijd gedaan over berekening: <p id=milis></p>
+        
+      </div>
+      
+      
+    </div>
+    
+  </body>
+  
+  
+  
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <script src="databaseSQL.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body onload="updateStatus()">
+        <label class="bigtitle">Administratie Willems Wekker Winkel</label><br>
+        <div class="content">
+            <label class="title">Tabel Beheer</label><br>
+            <table>
+                <tr>
+                    <td><label>Medewerkertabel:</label></td>
+                    <td><input class="button"  type="button" value="Maak" onclick="maakMedewerkerTabel()"></td>
+                    <td><input class="button"  type="button" value="Verwijder (refresh pagina)" onclick="verwijderMedewerkerTabel()"><br></td>
+                </tr>
+            </table>
+        </div>
+        <div class="content">
+            <br><label class="title">Voeg Medewerker Toe:</label><br>
+            <table>
+                <tr>
+                    <td><label>Naam:</label></td>
+                    <td><input class="form" type="text" id="MedewerkerNaam"  value=""><br></td>
+                </tr>
+                <tr>
+                   <td><label>Geslacht:</label></td>
+                   <td><input class="form" type="text" id="MedewerkerGeslacht"  value=""><br></td>
+                </tr>
+                <tr>
+                    <td><label>Geboortedatum:</label></td>
+                    <td><input class="form" type="date" id="MedewerkerGeboortedatum"  value=""><br></td>
+                </tr>
+                <tr>
+                    <td><label>Salaris:</label></td>
+                    <td><input class="form" type="text" id="MedewerkerSalaris"  value=""><br></td>
+                </tr>
+                <tr>
+                    <td><label>Start Contract:</label></td>
+                    <td><input class="form" type="date" id="MedewerkerStartContract"  value=""><br></td>
+                </tr>
+                <tr>
+                    <td><label>Contact Info:</label></td>
+                    <td><input class="form" type="text" id="MedewerkerContactInfo"  value=""><br></td>
+                </tr>
+                <tr>
+                    <td><label>Notities:</label></td>
+                    <td><input class="form" type="text" id="MedewerkerNotities"  value=""><br></td>
+                </tr>
+                </div>
+            </table>
+            <input class="button toevoegbutton"  type="button" value="Toevoegen" onclick="voegMedewerkerToe()"><br><br>
+            <label class="title">Aanpassen Medewerker (bij ID):</label>
+            <input class="form" type="text" id="aanpassenMedewerker"  value=""><br>
+            <input class="button toevoegbutton"  type="button" value="Aanpassen" onclick="aanpassenMedewerker()"><br><br>
+            <label class="title">Verwijder Medewerker (bij ID):</label>
+            <input class="form" type="text" id="verwijderMedewerker"  value=""><br>
+            <input class="button toevoegbutton"  type="button" value="Verwijder" onclick="verwijderMedewerker()"><br>
+        </div>
+        <label class="status title">Medewerkers:</div><br>
+        <div class="content" id="Medewerkers" ></div><br>
+        <label class="title">Statusberichten van Query:</label>
+        <div id="status" name="status"></div>
+    </body>
+</html>

@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+<title>Mini Portfolio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<link href="../font/css/fontello.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+
+ <style>
+      
+      #titel{
+        text-align:center;
+        background-color:yellow;
+        border:4px solid black;
+        border-collapse:collapse;
+        font-size:30px;
+        margin-bottom:10px;
+        padding:5px;
+      }
+      #wrapper{
+       width: 600px;
+       height: 370px;
+       border:2px solid black;
+        border-collapse:collapse;
+       margin:auto;
+       padding:20px 20px 20px 20px;
+       font-size:18px;
+       font-family: Arial, Helvetica, sans-serif;
+       color:black;
+       background-color:white;
+       line-height:normal;
+      }
+      
+      #linkerblok{
+         background-color:yellow;
+         width:24%;
+         float:left;
+         padding:0px;
+         border:4px solid black;
+      }
+      
+      #rechterblok{
+         background-color:yellow;
+         width:73%;
+         height:302px;
+         float:right;
+         padding:0px;
+         border:4px solid black;
+         text-align:center;
+      }
+      
+      .dot {
+        height: 6px;
+        width: 6px;
+        background-color: black;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right:5px;
+        margin-left:10px;
+        margin-bottom:3px;
+      }
+       
+       
+      }
+      #check{
+        font-size:18px;
+        padding:5px;
+        background-color:white;
+      }
+      
+      #invoer{
+        font-size:18px;
+        margin-bottom:5px;
+        background-color:white;
+      }
+      
+      #checklabel{
+        font-size:18px;
+        margin-bottom:0px;
+      }
+      body{
+        color:black;
+      }
+      
+      
+    </style>
+</head>
+
+
+<body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav  -collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.html"><img src="../img/Eend.png" style="width:64px" alt="" ></a>
+        <ul class="nav nav-collapse pull-right">
+          <li><a href="../index.html" ><i class="icon-user"></i> Profiel</a></li>
+          <li><a href="../skills.html"><i class="icon-trophy"></i> Vaardigheden</a></li>
+         <li><a href="../opdrachten.html" class="active"><i class="icon-picture" ></i> Opdrachten</a ></li>
+       </ul>
+       <div class="nav-collapse collapse"></div>
+     </div>
+   </div>
+  </div>
+  
+  <br>
+  <div id="wrapper">
+      <div id="titel">Mijn Boodschappenlijst:</div>
+      
+      <div  id="linkerblok">
+        <br>
+        <label id="checklabel">Voeg een item aan het lijstje toe:</label> <input type="text" id='invoer'><br>
+        <button onclick='toevoeg()' id="check">voeg toe</button> <br>
+        <button onclick='verwijder()' id="check">verwijder lijst</button>
+        
+        
+      </div>
+      <div id='rechterblok'>
+        <br><u><div>De Boodschappenlijst:</div></u>
+        <p id="boodschappen"></p>
+        
+      </div>
+    
+    
+    <script>
+      
+      let lijst = [];
+      let checkJSON = localStorage.getItem("JSONlijst")
+      
+      if (checkJSON == null){
+        lijst = []
+      }
+      else {
+        lijst = JSON.parse(checkJSON);
+        weergave()
+      }
+      
+      function toevoeg(){
+        let invoer = document.getElementById("invoer").value;
+        if (invoer != ""){
+          lijst.push(invoer);
+        }
+        
+        let JSONboodschappen = JSON.stringify(lijst);
+        localStorage.setItem("JSONlijst", JSONboodschappen);
+        let boodschappen = localStorage.getItem("JSONlijst");
+        
+        
+        weergave();
+      }
+      function weergave(){
+        let htmltext = "<table>";
+        let hoogte1 = 360
+        let hoogte2 = 302
+        for (i=0;i<lijst.length;i++){
+          htmltext += "<tr><td><span class='dot'></span>" + lijst[i] +"  "+ "<input type=checkbox  onclick='update(" + i + ")'></ul></td></tr>";
+        }
+        for (x=0; x<lijst.length;x++){
+         if (x>10){
+          hoogte1 = 370 + ((x-10)*20)
+          hoogte2 = 302 + ((x-10)*20)
+          document.getElementById('wrapper').style.height = hoogte1
+          document.getElementById('rechterblok').style.height = hoogte2
+         }
+        }
+        htmltext += "</table>";
+        document.getElementById("boodschappen").innerHTML = htmltext;
+        
+      }
+      
+      function update(index){
+        lijst.splice(index, 1);
+        toevoeg()
+      }
+      
+      
+      function verwijder(){
+        document.getElementById("invoer").value = ""
+        lijst = [];
+        hoogte1=370
+        hoogte2=302
+        document.getElementById('wrapper').style.height = hoogte1
+        document.getElementById('rechterblok').style.height = hoogte2
+        toevoeg()
+        document.getElementById("boodschappen").innerHTML = 'de lijst is geleegd';
+      }
+      
+      
+    </script>
+    
+    
+    
+  </div>

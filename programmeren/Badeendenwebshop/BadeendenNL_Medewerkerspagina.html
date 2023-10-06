@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>BadeendenNL - Medewerkerspagina</title>
+  <link rel="stylesheet" href="BadeendenNL.css">
+  <script src="BadeendenNL.js"></script>
+</head>
+<body id="managerpage">
+  <header>
+    <h1>BadeendenNL</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="BadeendenNL.html">Home</a></li>
+      <li><a href="BadeendenNL_Medewerkerspagina.html">Medewerkerspagina</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="category">
+      <h2>Bestelregels:</h2>
+      
+      <div id="bestelregelsTabel"></div>
+    </section>
+
+    <section class="category">
+    <h2>Bestelling Afhandelen:</h2>
+
+      <input type='number' id='verwijderBestelling' placeholder='Bestelnummer'><br>
+      <button id="verwijderBestellingButton">Verwijder</button><br>
+      <button id="verwijderAlleBestellingenButton">Verwijder alle data</button><br><br>
+    </section>
+
+    <section class="category">
+      <h2>Klanten:</h2>
+      <div id="Klanten"></div>
+    </section>
+
+    <section class="category">
+      <h2>Klant Handmatig Toevoegen:</h2>
+
+      <input type='text' id='KlantNaam' placeholder='Klantnaam'><br>
+      <input type='text' id='GeboorteDatum' placeholder='Geboortedatum (YYYY-MM-DD)'><br>
+      <input type='text' id='Woonplaats' placeholder='Woonplaats'><br>
+      <input type='text' id='StraatNaam' placeholder='Straatnaam'><br>
+      <input type='text' id='StraatNummer' placeholder='Straatnummer'><br>
+      <input type='text' id='Postcode' placeholder='Postcode'><br>
+      <input type='text' id='EmailAdres' placeholder='E-mailadres'><br>
+      <button id="voegKlantToe">Voeg klant toe</button><br>
+      <button id="verwijderAlleKlanten">Verwijder alle data</button><br><br>
+    </section>
+
+    <section class="category">
+      <h2>Artikel Toevoegen:</h2>
+
+      <input type='number' id='CategorieID' placeholder='CategorieID'><br>
+      <input type='text' id='ArtikelOmschrijving' placeholder='Artikelomschrijving'><br>
+      <input type='number' id='Prijs' placeholder='Prijs'><br>
+      <button id="voegArtikelToe">Voeg artikel toe</button><br>
+    </section>
+
+    <section class="category">
+      <h2>Medewerker Toevoegen:</h2>
+
+      <input type='text' id='MedewerkerNaam' placeholder='Medewerkernaam'><br>
+      <input type='text' id='Geboortedatum' placeholder='Geboortedatum (YYYY-MM-DD)'><br>
+      <input type='text' id='Geslacht' placeholder='Geslacht'><br>
+      <input type='text' id='Functie' placeholder='Functie'><br>
+      <input type='text' id='Telefoonnummer' placeholder='Telefoonnummer'><br>
+      <input type='text' id='EmailMedewerker' placeholder='E-mailadres'><br>
+      <button id="voegMedewerkerToe">Voeg medewerker toe</button><br>
+    </section>
+
+    <section class="category">
+    <div id="status"></div>
+    </section>
+  </main>
+
+ 
+
+  <!-- <div id="Klanten"></div> -->
+  <!-- <footer>
+    &copy; 2023 BadeendenNL
+  </footer> -->
+
+  
+</body>
+</html>
